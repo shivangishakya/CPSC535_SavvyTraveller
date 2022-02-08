@@ -1,5 +1,10 @@
 # CPSC535_SavyyTraveller
 
+Team Members:
+Shivangi Shakya
+Saoni Mustafi
+Nick Bidler
+
 We all know that air travel is dense in the US, there are so many flights one may choose from in order to fly from one point to another, with one or more hops. Assuming that you know what probability each flight is on time, you would like to calculate (i) what route will maximize the probability to arrive on time between two given cities, and (ii) what city is the most reliable travel destination. To simplify, we consider that between two nodes, there is the same probability to travel from one to another. In the real world, these probabilities are not the same, but we could consider the average of each direction as the common value.
 Given a graph and two cities, we need to compute the path with the highest probability of on-time arrival. If the path has a single edge, then it will be the probability of that edge. If the path has multiple edges, then multiply all the probabilities.
 
