@@ -1,5 +1,5 @@
 #############################################################################
-#       PROJECT 1:     SAVYY TRAVELLER
+#       PROJECT 1:     SAVVY TRAVELLER
 #       GROUP MEMBERS: Shivangi Shakya, Saoni Mustafi, Nick Bidler
 #
 #       PURPOSE: to compute:
