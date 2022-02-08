@@ -1,4 +1,4 @@
-# CPSC535_SavyyTraveller
+# CPSC535_SavvyTraveller
 
 Team Members:
 1. Shivangi Shakya
