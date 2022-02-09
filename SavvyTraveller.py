@@ -89,14 +89,14 @@ class Graph:
                 # vertex and source != destination
                 if vertices[i] in self.graph[vertices[j]] and i != j:
                     self.BestRoute(vertices[j], vertices[i])
-                    print(vertices[j]+" : "+ str(max(self.list1.values())))
+                    print(vertices[j]+" : "+ str(max(self.list1.values())) + " ### route: " + max(self.list1, key=self.list1.get))
                     # Getting the sum of probability of paths for destination
                     sum = sum + max(self.list1.values())
                     self.visited[vertices[j]] = False
                     self.list1 = {} # Clearing the contents of list1 dict
                     self.path = [] # Clearing the contents of path list
             # Save the sum of probability of paths in dict of destination
-            dict[vertices[i]] = sum
+            dict[vertices[i]] = sum 
         print()
         print(dict)
         # Print the Reliable Destination
@@ -204,8 +204,8 @@ if __name__ == '__main__':
     #     visited[i] = False
     # path=[]
     # list1 = {}
-    src = str(input("Enter source vertex: ")) #Input A as per example
-    dest = str(input("Enter destination vertex: ")) #Input F as per example
+    src = str(input("Enter source vertex: ")).upper() #Input A as per example
+    dest = str(input("Enter destination vertex: ")).upper() #Input F as per example
 
     g = Graph(graph)
     g.printBestRoute(src, dest)
