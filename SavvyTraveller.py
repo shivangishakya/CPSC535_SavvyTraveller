@@ -91,7 +91,8 @@ class Graph:
                     self.BestRoute(vertices[j], vertices[i])
                     print(vertices[j]+" : "+ str(max(self.list1.values())) + " ### route: " + max(self.list1, key=self.list1.get))
                     # Getting the sum of probability of paths for destination
-                    sum = sum + max(self.list1.values())
+                    #     tried to average by the number of nodes travelled
+                    sum = sum + max(self.list1.values()) #/ ( len(max(self.list1, key=self.list1.get)) //3 ) )
                     self.visited[vertices[j]] = False
                     self.list1 = {} # Clearing the contents of list1 dict
                     self.path = [] # Clearing the contents of path list
