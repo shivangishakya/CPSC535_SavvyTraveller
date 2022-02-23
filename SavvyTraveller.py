@@ -9,7 +9,9 @@
 #                    reliable travel destination.
 #
 ############################################################################
+from importlib.resources import contents
 import pprint
+import ast
 
 # Class Graph encapsulates the functions and helper functions required for
 # the computation
@@ -52,6 +54,7 @@ class Graph:
             for a in graph[src]:
                 if self.visited[a] == False and self.graph[src][a] != '0':
                     self.BestRoute(a, dest) # Recursion with next vertex as source
+    
 
         # Pop out one vertex from path to check for another path
         self.path.pop()
@@ -63,6 +66,8 @@ class Graph:
     def printBestRoute(self, src, dest):
         self.BestRoute(src, dest)
 
+        
+        
         print(self.list1)
         # Get the key with maximum value and maximum value
         max_path = max(self.list1, key=self.list1.get)
@@ -90,9 +95,6 @@ class Graph:
                 if vertices[i] in self.graph[vertices[j]] and i != j:
                     self.BestRoute(vertices[j], vertices[i])
                     print(vertices[j]+" : "+ str(max(self.list1.values())) + " ### route: " + max(self.list1, key=self.list1.get))
-                    # Getting the sum of probability of paths for destination
-                    #     tried to average by the number of nodes travelled
-                    sum = sum + max(self.list1.values()) #/ ( len(max(self.list1, key=self.list1.get)) //3 ) )
                     self.visited[vertices[j]] = False
                     self.list1 = {} # Clearing the contents of list1 dict
                     self.path = [] # Clearing the contents of path list
@@ -136,70 +138,62 @@ if __name__ == '__main__':
     #     print()
     # printGraph(graph)
 
-    graph = {'A': {'A': 0,
-       'B': '0.8',
-       'C': '0.7',
-       'D': '0.9',
-       'E': '0',
-       'F': '0',
-       'G': '0',
-       'H': '0'},
- 'B': {'A': '0.8',
-       'B': 0,
-       'C': '0.8',
-       'D': '0',
-       'E': '0.6',
-       'F': '0.6',
-       'G': '0',
-       'H': '0'},
- 'C': {'A': '0.7',
-       'B': '0.8',
-       'C': 0,
-       'D': '0',
-       'E': '0',
-       'F': '0.9',
-       'G': '0',
-       'H': '0'},
- 'D': {'A': '0.9',
-       'B': '0',
-       'C': '0',
-       'D': 0,
-       'E': '0',
-       'F': '0.6',
-       'G': '0.8',
-       'H': '0'},
- 'E': {'A': '0',
-       'B': '0.6',
-       'C': '0',
-       'D': '0',
-       'E': 0,
-       'F': '0.8',
-       'G': 0,
-       'H': '0.6'},
- 'F': {'A': '0',
-       'B': '0.6',
-       'C': '0.9',
-       'D': '0.6',
-       'E': '0.8',
-       'F': 0,
-       'G': '0.7',
-       'H': '0.7'},
- 'G': {'A': '0',
-       'B': '0',
-       'C': '0',
-       'D': '0.8',
-       'E': '0',
-       'F': '0.7',
-       'G': 0,
-       'H': '0.9'},
- 'H': {'A': '0',
-       'B': '0',
-       'C': '0',
-       'D': '0',
-       'E': '0.6',
-       'F': '0.7',
-       'G': '0.9',
-       'H': 0}}
+    flname = input("Enter the graph file (graph1.txt/ graph2.txt/ graph3.txt) you want to process: ")
+    fl = open(flname, "r")
+    graphinput = fl.read()
+    graph = ast.literal_eval(graphinput)
+    fl.close()
+    print(graph)
+#     graph = {'A': {'A': 0,
+#        'B': '0.8',
+#        'C': '0.6',
+#        'D': '0',
+#        'E': '0',
+#        'F': '0.8',
+#        'G': '0'},
+#  'B': {'A': '0.8',
+#        'B': 0,
+#        'C': '0',
+#        'D': '0.6',
+#        'E': '0.9',
+#        'F': '0',
+#        'G': '0'},
+#  'C': {'A': '0.6',
+#        'B': '0',
+#        'C': 0,
+#        'D': '0.7',
+#        'E': '0',
+#        'F': '0.5',
+#        'G': '0'},
+#  'D': {'A': '0',
+#        'B': '0.6',
+#        'C': '0.7',
+#        'D': 0,
+#        'E': '0',
+#        'F': '0',
+#        'G': '0'},
+#  'E': {'A': '0',
+#        'B': '0.9',
+#        'C': '0',
+#        'D': '0',
+#        'E': 0,
+#        'F': '0.8',
+#        'G': '0.7'},
+#  'F': {'A': '0.8',
+#        'B': '0',
+#        'C': '0.5',
+#        'D': '0',
+#        'E': '0',
+#        'F': 0,
+#        'G': '0.9'},
+#  'G': {'A': '0',
+#        'B': '0',
+#        'C': '0',
+#        'D': '0',
+#        'E': '0.7',
+#        'F': '0.9',
+#        'G': 0},
+#  }
 
     # for i in graph:
     #     visited[i] = False
@@ -211,6 +205,3 @@ if __name__ == '__main__':
     g = Graph(graph)
     g.printBestRoute(src, dest)
     g.ReliableDest()
-
-
-
