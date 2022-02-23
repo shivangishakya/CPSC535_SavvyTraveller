@@ -54,7 +54,6 @@ class Graph:
             for a in graph[src]:
                 if self.visited[a] == False and self.graph[src][a] != '0':
                     self.BestRoute(a, dest) # Recursion with next vertex as source
-    
 
         # Pop out one vertex from path to check for another path
         self.path.pop()
@@ -65,9 +64,6 @@ class Graph:
     # pair of vertices.
     def printBestRoute(self, src, dest):
         self.BestRoute(src, dest)
-
-        
-        
         print(self.list1)
         # Get the key with maximum value and maximum value
         max_path = max(self.list1, key=self.list1.get)
@@ -111,100 +107,23 @@ class Graph:
 
 # Main Function
 if __name__ == '__main__':
-    # graph = {}
-    # visited = {}
-    # v = int(input("Enter number of vertices: "))
-
-    # print("Enter vertices(keys) : ")
-    # for i in range(v):
-    #     graph.setdefault(input())
-
-    # print()
-    # edges = {}
-    # for x in graph:
-    #     edges.setdefault(x)
-
-    # for i in graph:
-    #     graph[i] = edges.copy()
-    #     visited[i] = False
-
-    # print("Enter probability: ")
-    # for i in graph:
-    #     print("Vertex "+ i + " : ")
-    #     for j in graph[i]:
-    #         if i==j:
-    #             print(j+": 0")
-    #             graph[i][j] = 0
-    #         else:
-    #             var = input(j+": ")
-    #             graph[i][j] = var
-    #     print()
-    # printGraph(graph)
-
+    
+    # Enter the text file name which needs to run
     flname = input("Enter the graph file (graph1.txt/ graph2.txt/ graph3.txt) you want to process: ")
+    # Open File in read operation
     fl = open(flname, "r")
     graphinput = fl.read()
     graph = ast.literal_eval(graphinput)
     fl.close()
+    
+    # Print the graph
     print(graph)
-#     graph = {'A': {'A': 0,
-#        'B': '0.8',
-#        'C': '0.6',
-#        'D': '0',
-#        'E': '0',
-#        'F': '0.8',
-#        'G': '0'},
-#  'B': {'A': '0.8',
-#        'B': 0,
-#        'C': '0',
-#        'D': '0.6',
-#        'E': '0.9',
-#        'F': '0',
-#        'G': '0'},
-#  'C': {'A': '0.6',
-#        'B': '0',
-#        'C': 0,
-#        'D': '0.7',
-#        'E': '0',
-#        'F': '0.5',
-#        'G': '0'},
-#  'D': {'A': '0',
-#        'B': '0.6',
-#        'C': '0.7',
-#        'D': 0,
-#        'E': '0',
-#        'F': '0',
-#        'G': '0'},
-#  'E': {'A': '0',
-#        'B': '0.9',
-#        'C': '0',
-#        'D': '0',
-#        'E': 0,
-#        'F': '0.8',
-#        'G': '0.7'},
-#  'F': {'A': '0.8',
-#        'B': '0',
-#        'C': '0.5',
-#        'D': '0',
-#        'E': '0',
-#        'F': 0,
-#        'G': '0.9'},
-#  'G': {'A': '0',
-#        'B': '0',
-#        'C': '0',
-#        'D': '0',
-#        'E': '0.7',
-#        'F': '0.9',
-#        'G': 0},
-#  }
-
-    # for i in graph:
-    #     visited[i] = False
-    # path=[]
-    # list1 = {}
+    
+    # Enter the source and destination vertex for 2nd part of project
     src = str(input("Enter source vertex: ")) #Input A as per example
     dest = str(input("Enter destination vertex: ")) #Input F as per example
 
+    # Create the object of graph and Call the functions
     g = Graph(graph)
     g.printBestRoute(src, dest)
     g.ReliableDest()
