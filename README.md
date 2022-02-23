@@ -28,4 +28,4 @@ There is no other path with larger probability so the path A-C-F with probabilit
 We work to compute the output for (ii):
 For city A, the probability to arrive on time from all other cities is = 0.8 (from B) + 0.7 (from C) + 0.9 (from D) + 0.504 (from E) + 0.63 (from F) + 0.72 (from G) + 0.648 (from H)
 Similarly we compute for cities B, C, D, E, F, G, H and we select the city with the highest sum.
-Output: path A-C-F, probability 0.63, and city B.
+Output: path A-C-F, probability 0.63, and city F.
