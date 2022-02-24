@@ -81,8 +81,6 @@ class Graph:
         # Looping to access all the vertices one by one for destination
         for i in range(0,len(vertices)):
             sum = 0
-            print()
-            print(vertices[i] + ": ") # Print the destination vertex
 
             # Looping to access all the vertices one by one for source
             for j in range(0, len(vertices)):
@@ -90,8 +88,6 @@ class Graph:
                 # vertex and source != destination
                 if vertices[i] in self.graph[vertices[j]] and i != j:
                     self.BestRoute(vertices[j], vertices[i])
-                    print(vertices[j]+" : "+ str(max(self.list1.values())) + " ### route: " + max(self.list1, key=self.list1.get))
-                    #print(vertices[j]+" : "+ str(max(self.list1.values())))
                     # Getting the sum of probability of paths for destination
                     sum = sum + max(self.list1.values())
                     self.visited[vertices[j]] = False
