@@ -1,7 +1,7 @@
 # CPSC535_SavvyTraveller
 
 Team Members:
-1. Shivangi Shakya
+1. Shivangi Shakya shivangishakya@csu.fullerton.edu
 2. Saoni Mustafi saonimustafi@csu.fullerton.edu
 3. Nick Bidler
 
