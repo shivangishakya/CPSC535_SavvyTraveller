@@ -11,7 +11,7 @@ Given a graph and two cities, we need to compute the path with the highest proba
 
 Given a graph, for any city we consider the sum of all probabilities of on-time arrivals from each other city.
 
-For example:
+For example 1:
 Input: The graph below, the source =A and the destination=F,
 
 <img width="456" alt="Screen Shot 2022-02-07 at 9 11 49 PM" src="https://user-images.githubusercontent.com/71597613/152922656-16937808-0800-4165-8ec2-da7a3c4ebd03.png">
@@ -50,3 +50,36 @@ From the above calculations, city F turns out to be the most reliable city with 
 
 So the output of (i) and (ii) are -
 Output: path A-C-F, probability 0.63, and city F.
+
+Similarly, for example 2, below:
+
+![image](https://user-images.githubusercontent.com/9604309/156300763-4c47539d-ef8b-4923-aec7-9be6631cf42d.png)
+
+(i) The highest probability path of an on-time arrival source C and destination A
+
+![image](https://user-images.githubusercontent.com/9604309/156300924-9e7fc1ae-c506-4bd3-b56b-19c90cdca802.png)
+
+is the path C-F-E-D-A with probability 0.5184
+
+(11) The most reliable destination among the nodes in the space
+
+![image](https://user-images.githubusercontent.com/9604309/156301194-d35ccd66-2ad0-4a31-a968-8bed9d5ea2e6.png)
+
+is city D, with a summed probability of 5.236 (at an average probaability of 0.748)
+
+Last, for example 3, below:
+
+![image](https://user-images.githubusercontent.com/9604309/156301391-21cbbcbf-62b0-4fbf-8cf1-a6d1d805f838.png)
+
+(i) The highest probability path of an on-time arrival source E and destination C
+
+![image](https://user-images.githubusercontent.com/9604309/156301728-4c21b20e-9686-4b36-bf70-b540db63ae7a.png)
+
+is the path E-A-D-C with probability 0.648
+
+(11) The most reliable destination among the nodes in the space
+
+![image](https://user-images.githubusercontent.com/9604309/156301557-1a8263ec-8735-467e-b4ec-c744ddf4c6c1.png)
+
+is city A, with a summed probability of 5.014 (at an average probaability of 0.716)
+
